@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Greeting from "../components/Greetings";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
         <title>Nukebox</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Nukebox
+
+      <Greeting name="Christoph🐸" />
     </div>
   );
 }
