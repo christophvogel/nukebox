@@ -12,8 +12,8 @@ export default function TracklistItem(props: Props) {
         src="https://note-store.de/upload/resize_cache/iblock/baa/340_420_0/Procol-Harum-_-A-Whiter-Shade-of-Pale.jpg"
         className={styles.cover}
       ></img>
-      <h4>{props.title}</h4>
-      <p>{props.artist}</p>
+      <h4 className={styles.title}>{props.title}</h4>
+      <p className={styles.artist}>{props.artist}</p>
     </div>
   );
 }
