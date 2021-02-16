@@ -1,0 +1,13 @@
+.trackcontainer {
+  display: grid;
+}
+.cover {
+  height: 50px;
+}
+.title {
+  color: var(--primary-text);
+}
+
+.artist {
+  color: var(--secondary-text);
+}
