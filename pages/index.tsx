@@ -8,6 +8,7 @@ export default function Home() {
         <title>Nukebox</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      Nukebox
     </div>
   );
 }

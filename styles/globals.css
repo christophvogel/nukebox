@@ -1,7 +1,7 @@
 :root {
   --background-color: #1a2028;
-  --primary-text-color: #fff;
-  --sub-text-color: #b8b8b8;
+  --primary-text: #fff;
+  --secondary-text: #b8b8b8;
 }
 
 html,
