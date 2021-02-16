@@ -1,5 +1,7 @@
 import Head from "next/head";
-import Greeting from "../components/Greetings";
+import Greeting from "../components/Greeting";
+import TracklistItem from "../components/Tracklist";
+import Tracklist from "../components/Tracklist";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -11,6 +13,7 @@ export default function Home() {
       </Head>
 
       <Greeting name="Christoph🐸" />
+      <TracklistItem title="A Whiter Shade of Pale" artist="Procol Harum" />
     </div>
   );
 }

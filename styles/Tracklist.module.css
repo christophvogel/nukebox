@@ -1,0 +1,6 @@
+.trackcontainer {
+  display: grid;
+}
+.cover {
+  height: 50px;
+}
