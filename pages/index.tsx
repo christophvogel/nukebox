@@ -9,7 +9,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Nukebox</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/frog.png" />
       </Head>
 
       <Greeting name="Christoph🐸" />
