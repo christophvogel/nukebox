@@ -13,6 +13,9 @@
   color: var(--primary-text);
   align-self: end;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .artist {
