@@ -1,13 +1,22 @@
 .trackcontainer {
   display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1em;
+  margin-bottom: 1em;
 }
 .cover {
-  height: 50px;
+  height: 3.125em;
+  grid-row: 1 / 3;
+  border-radius: 0.625em;
 }
 .title {
   color: var(--primary-text);
+  align-self: end;
+  margin: 0;
 }
 
 .artist {
+  margin: 0;
   color: var(--secondary-text);
+  align-self: start;
 }

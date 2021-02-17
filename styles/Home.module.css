@@ -2,4 +2,5 @@
   display: grid;
   background: var(--background-color);
   color: var(--primary-color);
+  padding: 1.25em;
 }
