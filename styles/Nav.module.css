@@ -1,0 +1,7 @@
+.back {
+  background-color: #1a2028;
+}
+.playing {
+  margin: 2em;
+  display: flex;
+}
