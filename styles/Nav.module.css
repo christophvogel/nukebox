@@ -1,7 +1,9 @@
 .back {
   background-color: #1a2028;
+  border: none;
 }
 .playing {
-  margin: 2em;
-  display: flex;
+  /* margin: 2em; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
