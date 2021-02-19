@@ -4,6 +4,7 @@ import { APITrack, getTrack } from "../../utils/api";
 
 import TrackDetails from "../../components/TrackDetails";
 import Audioplayer from "../../components/AudioPlayer";
+import Nav from "../../components/Nav";
 
 export default function Track() {
   const router = useRouter();
@@ -26,9 +27,8 @@ export default function Track() {
 
   return (
     <div>
-      <button id="go-back">Go back!</button>
+      <Nav />
       <main>
-        Now Playing:
         <TrackDetails
           imgSrc={track.imgSrc}
           title={track.title}
