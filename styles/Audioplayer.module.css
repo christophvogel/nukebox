@@ -4,7 +4,6 @@
   /* padding: 1em; */
 }
 .audio::-webkit-media-controls-play-button {
-  color: #fff;
   width: 3em;
 }
 
