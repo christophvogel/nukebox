@@ -36,7 +36,7 @@ export default function Track() {
         />
       </main>
       <footer>
-        <Audioplayer audio={track.audio} />
+        <Audioplayer src={track.audio} />
       </footer>
     </div>
   );
