@@ -9,29 +9,29 @@ import styles from "../../styles/Favbutton.module.css";
 
 export default function Track() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id: idQuery } = router.query;
+  const id = typeof idQuery === "string" ? idQuery : idQuery[0];
   const [track, setTrack] = useState<APITrack>(null);
-  const [favorite, setFavorite] = useState(null);
-  const [storedValue, setValue] = useLocalStorage("favoriteSong", "");
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage<string[]>(
+    "favoriteSongs",
+    []
+  );
+  const favorite = favoriteSongs.includes(id);
 
   useEffect(() => {
-    if (typeof id !== "string" || favorite === null) {
-      return;
-    }
-    if (favorite) {
-      setValue(id);
-    }
-    if (!favorite) {
-      setValue("");
-    }
-  }, [favorite]);
-  useEffect(() => {
-    if (typeof id !== "string") {
-      return;
-    }
     getTrack(id).then((newTrack) => setTrack(newTrack));
-    setFavorite(id === storedValue);
   }, [id]);
+
+  const handleFavoriteClick = () => {
+    if (favorite) {
+      const newFavoriteSongs = favoriteSongs.filter(
+        (favoriteSong) => favoriteSong !== id
+      );
+      setFavoriteSongs(newFavoriteSongs);
+    } else {
+      setFavoriteSongs([...favoriteSongs, id]);
+    }
+  };
 
   if (!track) {
     return <div>Loading...</div>;
@@ -46,10 +46,7 @@ export default function Track() {
           title={track.title}
           artist={track.artist}
         />
-        <button
-          className={styles.favbtn}
-          onClick={() => setFavorite(!favorite)}
-        >
+        <button className={styles.favbtn} onClick={handleFavoriteClick}>
           {favorite ? "❤️" : "🖤"}
         </button>
       </main>
