@@ -3,7 +3,7 @@ export type APITrack = {
   imgSrc: string;
   title: string;
   artist: string;
-  audioSrc: string;
+  audio: string;
 };
 
 async function fetchURL<T>(url: string): Promise<T> {
