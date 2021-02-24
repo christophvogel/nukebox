@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import { APITrack, getTrack } from "../../utils/api";
-
 import TrackDetails from "../../components/TrackDetails";
 import Audioplayer from "../../components/AudioPlayer";
 import Nav from "../../components/Nav";
@@ -10,19 +10,19 @@ import styles from "../../styles/Favbutton.module.css";
 export default function Track() {
   const router = useRouter();
   const { id } = router.query;
-
   const [track, setTrack] = useState<APITrack>(null);
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(null);
+  const [storedValue, setValue] = useLocalStorage("favoriteSong", "");
 
   useEffect(() => {
-    if (typeof id !== "string") {
+    if (typeof id !== "string" || favorite === null) {
       return;
     }
     if (favorite) {
-      localStorage.setItem("favoriteSong", id);
+      setValue(id);
     }
     if (!favorite) {
-      localStorage.removeItem("favoriteSong");
+      setValue("");
     }
   }, [favorite]);
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Track() {
       return;
     }
     getTrack(id).then((newTrack) => setTrack(newTrack));
-    setFavorite(id === localStorage.getItem("favoriteSong"));
+    setFavorite(id === storedValue);
   }, [id]);
 
   if (!track) {
