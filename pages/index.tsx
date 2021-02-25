@@ -6,6 +6,7 @@ import TracklistItem from "../components/TracklistItem";
 import styles from "../styles/Home.module.css";
 import { APITrack, getTracks } from "../utils/api";
 import Link from "next/link";
+import ViewsCount from "../components/ViewsCount";
 
 export default function Home() {
   const [tracks, setTracks] = useState<APITrack[]>([]);
@@ -33,7 +34,7 @@ export default function Home() {
         <title>Nukebox</title>
         <link rel="icon" href="/frog.png" />
       </Head>
-
+      <ViewsCount />
       <Greeting name="Christoph🐸" />
       <div>{trackItems}</div>
     </div>
