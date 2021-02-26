@@ -32,7 +32,7 @@ function newTracks() {
   return (
     <form className={styles.addform} onSubmit={handleSubmit}>
       <button className={styles.backbtn} onClick={() => router.push("/")}>
-        <img src="/back-icon.svg"></img>
+        <img src="/back-icon.svg"></img> BACK
       </button>
       <label>
         Img Source:
@@ -62,7 +62,7 @@ function newTracks() {
           onChange={(event) => setAudio(event.target.value)}
         />
       </label>
-      <button className={styles.glowonhover} type="submit">
+      <button className={styles.add} type="submit">
         ADD
       </button>
     </form>
