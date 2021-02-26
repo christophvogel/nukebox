@@ -15,16 +15,21 @@ function newTracks() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = { id, imgSrc, title, artist, audio };
-    await addTrack(data);
 
-    const addMore = confirm("Do you want to add more tracks?");
-    if (addMore === true) {
-      setIMG("");
-      setTitle("");
-      setArtist("");
-      setAudio("");
+    if (imgSrc && title && artist && audio !== "") {
+      await addTrack(data);
+
+      const addMore = confirm("Do you want to add more tracks?");
+      if (addMore === true) {
+        setIMG("");
+        setTitle("");
+        setArtist("");
+        setAudio("");
+      } else {
+        router.push("/");
+      }
     } else {
-      router.push("/");
+      alert("something is missing");
     }
   };
   const router = useRouter();
