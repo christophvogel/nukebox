@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { addTrack } from "../utils/api";
+import styles from "../styles/newTrack.module.css";
 
 function newTracks() {
   //   const [id, setID] = useState("");
@@ -15,40 +16,55 @@ function newTracks() {
     event.preventDefault();
     const data = { id, imgSrc, title, artist, audio };
     await addTrack(data);
+
+    const addMore = confirm("Do you want to add more tracks?");
+    if (addMore === true) {
+      setIMG("");
+      setTitle("");
+      setArtist("");
+      setAudio("");
+    } else {
+      router.push("/");
+    }
   };
   const router = useRouter();
+
   return (
-    <form onSubmit={handleSubmit}>
-      <button onClick={() => router.push("/")}>BACK</button>
+    <form className={styles.addform} onSubmit={handleSubmit}>
+      <button className={styles.backbtn} onClick={() => router.push("/")}>
+        <img src="/back-icon.svg"></img>
+      </button>
       <label>
-        imgSrc
+        Img Source:
         <input
           value={imgSrc}
           onChange={(event) => setIMG(event.target.value)}
         />
       </label>
       <label>
-        Title
+        Title:
         <input
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
       </label>
       <label>
-        Artist
+        Artist:
         <input
           value={artist}
           onChange={(event) => setArtist(event.target.value)}
         />
       </label>
       <label>
-        Audio
+        Audio:
         <input
           value={audio}
           onChange={(event) => setAudio(event.target.value)}
         />
       </label>
-      <input type="submit" />
+      <button className={styles.glowonhover} type="submit">
+        ADD
+      </button>
     </form>
   );
 }
