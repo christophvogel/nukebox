@@ -4,7 +4,6 @@ import { addTrack } from "../utils/api";
 import styles from "../styles/newTrack.module.css";
 
 function newTracks() {
-  //   const [id, setID] = useState("");
   const [imgSrc, setIMG] = useState("");
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
@@ -15,21 +14,16 @@ function newTracks() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = { id, imgSrc, title, artist, audio };
+    await addTrack(data);
 
-    if (imgSrc && title && artist && audio !== "") {
-      await addTrack(data);
-
-      const addMore = confirm("Do you want to add more tracks?");
-      if (addMore === true) {
-        setIMG("");
-        setTitle("");
-        setArtist("");
-        setAudio("");
-      } else {
-        router.push("/");
-      }
+    const addMore = confirm("Do you want to add more tracks?");
+    if (addMore === true) {
+      setIMG("");
+      setTitle("");
+      setArtist("");
+      setAudio("");
     } else {
-      alert("something is missing");
+      router.push("/");
     }
   };
   const router = useRouter();
@@ -42,6 +36,7 @@ function newTracks() {
       <label>
         Img Source:
         <input
+          required
           value={imgSrc}
           onChange={(event) => setIMG(event.target.value)}
         />
@@ -49,6 +44,7 @@ function newTracks() {
       <label>
         Title:
         <input
+          required
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
@@ -56,6 +52,7 @@ function newTracks() {
       <label>
         Artist:
         <input
+          required
           value={artist}
           onChange={(event) => setArtist(event.target.value)}
         />
@@ -63,6 +60,7 @@ function newTracks() {
       <label>
         Audio:
         <input
+          required
           value={audio}
           onChange={(event) => setAudio(event.target.value)}
         />
