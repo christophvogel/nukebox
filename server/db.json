@@ -20,6 +20,13 @@
       "title": "Tighten Up",
       "artist": "The Black Keys",
       "audio": "/testsong.mp3"
+    },
+    {
+      "id": "Queens of the Stone Age_No One Knows",
+      "imgSrc": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Queens_of_the_Stone_Age_-_No_One_Knows_%28German_CD%29.jpg/220px-Queens_of_the_Stone_Age_-_No_One_Knows_%28German_CD%29.jpg",
+      "title": "No One Knows",
+      "artist": "Queens of the Stone Age",
+      "audio": "//"
     }
   ]
 }

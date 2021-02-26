@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import { APITrack, getTracks } from "../utils/api";
 import Link from "next/link";
 import ViewsCount from "../components/ViewsCount";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [tracks, setTracks] = useState<APITrack[]>([]);
@@ -28,6 +29,7 @@ export default function Home() {
       </a>
     </Link>
   ));
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Head>
@@ -37,6 +39,7 @@ export default function Home() {
       <ViewsCount />
       <Greeting name="Christoph🐸" />
       <div>{trackItems}</div>
+      <button onClick={() => router.push("/newTrack")}>NEW</button>
     </div>
   );
 }
