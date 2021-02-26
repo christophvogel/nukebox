@@ -31,10 +31,11 @@ function newTracks() {
   return (
     <form className={styles.addform} onSubmit={handleSubmit}>
       <button className={styles.backbtn} onClick={() => router.push("/")}>
-        <img src="/back-icon.svg"></img> BACK
+        <img src="/back-icon.svg"></img>
+        <div>BACK</div>
       </button>
       <label>
-        Img Source:
+        <div>Img Source:</div>
         <input
           required
           value={imgSrc}
@@ -42,7 +43,7 @@ function newTracks() {
         />
       </label>
       <label>
-        Title:
+        <div>Title:</div>
         <input
           required
           value={title}
@@ -50,7 +51,7 @@ function newTracks() {
         />
       </label>
       <label>
-        Artist:
+        <div>Artist:</div>
         <input
           required
           value={artist}
@@ -58,7 +59,7 @@ function newTracks() {
         />
       </label>
       <label>
-        Audio:
+        <div>Audio:</div>
         <input
           required
           value={audio}
