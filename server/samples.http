@@ -1,0 +1,25 @@
+### GET HTML of index page
+GET http://localhost:3000
+### GET HTML of track page
+GET http://localhost:3000/tracks/the-strokes_last-nite
+
+### GET all tracks
+GET http://localhost:3000/api/tracks
+
+### GET a single track
+GET http://localhost:3000/api/tracks/the-strokes_last-nite
+
+### DELETE a single track
+DELETE http://localhost:3000/api/tracks/the-strokes_last-nite
+
+### POST a new track
+POST http://localhost:3000/api/tracks
+Content-Type: application/application/json
+
+{
+      "id": "the-black-keys_tighten-up",
+      "imgSrc": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/The_Black_Keys_-_Tighten_Up.jpg/220px-The_Black_Keys_-_Tighten_Up.jpg",
+      "title": "Tighten Up",
+      "artist": "The Black Keys",
+      "audio": "/testsong.mp3"
+    }

@@ -6,6 +6,7 @@ import TrackDetails from "../../components/TrackDetails";
 import Audioplayer from "../../components/AudioPlayer";
 import Nav from "../../components/Nav";
 import styles from "../../styles/Favbutton.module.css";
+import { deleteTrack } from "../../utils/api";
 
 export default function Track() {
   const router = useRouter();
@@ -36,6 +37,11 @@ export default function Track() {
     }
   };
 
+  const handleDeleteClick = async () => {
+    await deleteTrack(track.id);
+    router.back();
+  };
+
   if (!track) {
     return <div>Loading...</div>;
   }
@@ -52,6 +58,7 @@ export default function Track() {
         <button className={styles.favbtn} onClick={handleFavoriteClick}>
           {favorite ? "❤️" : "🖤"}
         </button>
+        <button onClick={handleDeleteClick}>Delete❌</button>
       </main>
       <footer>
         <Audioplayer src={track.audio} />
