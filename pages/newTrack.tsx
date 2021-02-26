@@ -1,30 +1,27 @@
 import { useState } from "react";
+import { addTrack } from "../utils/api";
 
 function newTracks() {
-  const [id, setID] = useState("");
+  //   const [id, setID] = useState("");
   const [imgSrc, setIMG] = useState("");
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [audio, setAudio] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    alert(`ID: ${id}, IMG: ${imgSrc}, Title: ${title}, Artist: ${artist}`);
-    const data = { id, imgSrc, title, artist, audio };
+  const id = `${artist}_${title}`;
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    fetch("http://localhost:3000/api/tracks", requestOptions);
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = { id, imgSrc, title, artist, audio };
+    await addTrack(data);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      {/* <label>
         ID
         <input value={id} onChange={(event) => setID(event.target.value)} />
-      </label>
+      </label> */}
       <label>
         imgSrc
         <input
