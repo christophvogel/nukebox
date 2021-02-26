@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { addTrack } from "../utils/api";
 
@@ -15,13 +16,10 @@ function newTracks() {
     const data = { id, imgSrc, title, artist, audio };
     await addTrack(data);
   };
-
+  const router = useRouter();
   return (
     <form onSubmit={handleSubmit}>
-      {/* <label>
-        ID
-        <input value={id} onChange={(event) => setID(event.target.value)} />
-      </label> */}
+      <button onClick={() => router.push("/")}>BACK</button>
       <label>
         imgSrc
         <input
