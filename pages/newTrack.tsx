@@ -17,7 +17,7 @@ function newTracks() {
     await addTrack(data);
 
     const addMore = confirm("Do you want to add more tracks?");
-    if (addMore === true) {
+    if (addMore) {
       setIMG("");
       setTitle("");
       setArtist("");
